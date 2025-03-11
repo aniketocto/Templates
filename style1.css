@@ -1,0 +1,241 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f5f0;
+    margin: 0 auto;
+}
+
+.thalis {
+    max-width: 1440px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.thali-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.thali-content {
+    flex: 1;
+}
+
+.thali-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #5a3921;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.tagline {
+    color: #777;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+
+.menu-section {
+    margin: 25px 0;
+}
+
+.menu-label {
+    color: #5a3921;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.menu-items {
+    color: #555;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.thumbnails {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.thumbnail.active {
+    border-color: #d35400;
+    transform: scale(1.1);
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.caption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #777;
+}
+
+.thali-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.thali-header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #214b5a;
+    text-align: center;
+}
+
+.thali-header p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #777;
+    text-align: center;
+}
+
+.animate-image {
+    transition: transform 0.8s ease-in-out;
+}
+
+.image-container {
+    position: absolute;
+    top: 115%;
+    left: 115%;
+    transition: transform 1s linear;
+}
+
+.image-container img {
+    position: absolute;
+    width: 490px;
+    height: auto;
+    transform: translate(-50%, -50%);
+    --radius: calc(50rem - 175px);
+    top: calc(50% + var(--radius) * sin(var(--angle)));
+    left: calc(50% + var(--radius) * cos(var(--angle)));
+}
+
+/* Function to calculate positions */
+.image-container img:nth-child(1) {
+    --angle: 0deg;
+}
+
+.image-container img:nth-child(2) {
+    --angle: -72deg;
+}
+
+.image-container img:nth-child(3) {
+    --angle: -144deg;
+}
+
+.image-container img:nth-child(4) {
+    --angle: -216deg;
+}
+
+.image-container img:nth-child(5) {
+    --angle: -288deg;
+}
+
+
+/* --------------------- RESPONSIVE ----------------------- */
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* -------------------------------------------------------- */
+
+
+@media screen and (max-width: 1200px) {
+    .image-container {
+        left: 123%;
+    }
+
+    .image-container img {
+        width: 390px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #mob-swipper {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .image-container, .thumbnails    {
+        display: none;
+    }
+    .swiper-slide img {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .swiper-slide img {
+        width: 100%;
+    }
+}
